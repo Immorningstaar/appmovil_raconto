@@ -1,0 +1,7 @@
+{
+  "name": "Raconto_appmovil",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
