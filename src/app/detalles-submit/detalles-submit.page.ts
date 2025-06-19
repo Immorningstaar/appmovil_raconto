@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-detalles-submit',
   templateUrl: './detalles-submit.page.html',
   styleUrls: ['./detalles-submit.page.scss'],
+  standalone: false,
 })
 export class DetallesSubmitPage implements OnInit {
 
