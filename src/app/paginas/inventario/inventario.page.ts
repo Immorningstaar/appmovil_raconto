@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   standalone: false,
 })
 export class InventarioPage implements OnInit {
+  
+  
 
   constructor() { }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
   standalone: false,
 })
-export class HomePage {
+export class HomePage {nombreUsuario = 'Ignacio'; // Simulado (luego vendrá del login)
+  rolUsuario = 'admin';      // admin / bodega / cocina
 
-  constructor() {}
+  constructor(private router: Router) {}
 
+  irA(ruta: string) {
+    this.router.navigate([`/${ruta}`]);
+  }
 }
