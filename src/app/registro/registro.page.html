@@ -36,8 +36,8 @@
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">usuario</ion-label>
-        <ion-input type="text" [(ngModel)]="usuario"></ion-input>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" [(ngModel)]="email"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -47,11 +47,12 @@
 
 
       <ion-item>
-        <ion-label>Nivel de Completero</ion-label>
+        <ion-label>Tipo de trabajador</ion-label>
         <ion-select [(ngModel)]="selectedOption">
-          <ion-select-option value="option1">Casual</ion-select-option>
-          <ion-select-option value="option2">Frecuente</ion-select-option>
-          <ion-select-option value="option3">Gran Completero</ion-select-option>
+          <ion-select-option value="option1">Administrador</ion-select-option>
+          <ion-select-option value="option2">Garzon</ion-select-option>
+          <ion-select-option value="option3">Cocina</ion-select-option>
+          <ion-select-option value="option3">Barra</ion-select-option>
         </ion-select>
       </ion-item>
 

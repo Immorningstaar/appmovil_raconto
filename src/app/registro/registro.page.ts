@@ -19,6 +19,7 @@ export class RegistroPage implements OnInit {
   selectedDate: string = '';
   usuario: string = '';
   password: string = '';
+  email: string = '';
 
   constructor(
     private alertController: AlertController, 
