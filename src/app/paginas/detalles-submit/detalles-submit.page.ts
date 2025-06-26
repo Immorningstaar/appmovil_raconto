@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 
 
@@ -12,8 +12,9 @@ export class DetallesSubmitPage {
   producto = {
     nombre: '',
     categoria: '',
-    tipoMedida: '', // unidad, peso, porcion
+    tipoMedida: '', // unidad, peso, porción
     cantidad: 0,
+    fechaVencimiento: null, // nueva propiedad
   };
 
   constructor(private alertController: AlertController) {}
@@ -24,7 +25,10 @@ export class DetallesSubmitPage {
       message: `
         <strong>${this.producto.nombre}</strong><br>
         Categoría: ${this.producto.categoria}<br>
-        Cantidad: ${this.producto.cantidad} (${this.producto.tipoMedida})
+        Cantidad: ${this.producto.cantidad} (${this.producto.tipoMedida})<br>
+        Vencimiento: ${this.producto.fechaVencimiento 
+          ? new Date(this.producto.fechaVencimiento).toLocaleDateString() 
+          : 'No definido'}
       `,
       buttons: ['OK'],
     });
@@ -39,7 +43,7 @@ export class DetallesSubmitPage {
       categoria: '',
       tipoMedida: '',
       cantidad: 0,
+      fechaVencimiento: null,
     };
   }
 }
-

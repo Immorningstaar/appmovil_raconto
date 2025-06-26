@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -6,11 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil.page.scss'],
   standalone: false,
 })
-export class PerfilPage implements OnInit {
+export class PerfilPage {
+  user: any = {
+    nombre: 'Juan Pérez',
+    correo: 'juan@raconto.cl',
+    cargo: 'Chef'
+  };
 
-  constructor() { }
+  constructor(private navCtrl: NavController) {}
 
-  ngOnInit() {
+  cerrarSesion() {
+    // Aquí puedes limpiar datos del usuario (ej: localStorage.clear())
+    this.navCtrl.navigateRoot('/login');
   }
-
 }
