@@ -1,18 +1,20 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button> <!-- Botón mágico -->
     </ion-buttons>
     <ion-title>Inicio</ion-title>
+    
   </ion-toolbar>
+  
 </ion-header>
 
 <ion-content class="ion-padding">
-
+<app-logo></app-logo>
   <!-- Saludo al usuario -->
   <h2>¡Hola, {{ nombreUsuario }}!</h2>
   <p>Rol: {{ rolUsuario }}</p>
-
   <!-- Grid de accesos rápidos -->
   <ion-grid>
     <ion-row>

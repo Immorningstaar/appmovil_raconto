@@ -18,7 +18,7 @@ export class AppComponent {
   logout() {
     // Aquí iría la lógica de cierre de sesión
     // Por ahora solo navegamos al login
-    this.router.navigate(['/log-in'], { replaceUrl: true });
+    this.router.navigate(['/login'], { replaceUrl: true });
     this.menu.close();
   }
 
