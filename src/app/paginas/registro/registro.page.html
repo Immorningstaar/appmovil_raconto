@@ -1,29 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <!--<app-company-name [companyName]="'DronStore'"></app-company-name>-->
     <ion-buttons slot="end">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-
-
-    <ion-title class="center-title"> Registro</ion-title>
-
-    <!-- Botón de menú -->
+    <ion-title class="center-title">Registro</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="mainMenu"></ion-menu-button>
-    </ion-buttons> 
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
+<ion-content [fullscreen]="true">
+  <app-logo></app-logo>
 
-<ion-content [fullscreen]="true"> 
-<app-logo></app-logo>
-   
-    <ion-card>
-
-  
-      <!-- campos del home-->
-      <ion-card-content>
+  <ion-card>
+    <ion-card-content>
 
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
@@ -36,8 +27,13 @@
       </ion-item>
 
       <ion-item>
+        <ion-label position="floating">RUT</ion-label>
+        <ion-input type="text" [(ngModel)]="rut"></ion-input>
+      </ion-item>
+
+      <ion-item>
         <ion-label position="floating">Email</ion-label>
-        <ion-input type="text" [(ngModel)]="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="email"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -45,30 +41,29 @@
         <ion-input type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
 
-
       <ion-item>
-        <ion-label>Tipo de trabajador</ion-label>
-          <ion-select [(ngModel)]="selectedOption" name="trabajador" interface="popover" required>
-          <ion-select-option value="option1">Administrador</ion-select-option>
-          <ion-select-option value="option2">Garzon</ion-select-option>
-          <ion-select-option value="option3">Cocina</ion-select-option>
-          <ion-select-option value="option3">Barra</ion-select-option>
+        <ion-label>Rol de trabajador</ion-label>
+        <ion-select [(ngModel)]="selectedOption" name="trabajador" interface="popover" required>
+          <ion-select-option value="Administrador">Administrador</ion-select-option>
+          <ion-select-option value="Garzon">Garzón</ion-select-option>
+          <ion-select-option value="Cocina">Cocina</ion-select-option>
+          <ion-select-option value="Barra">Barra</ion-select-option>
         </ion-select>
       </ion-item>
 
-      <ion-item>
+    <ion-item>
         <ion-label>Fecha Nacimiento</ion-label>
         <ion-item>  
 
-           <!-- Componente de Angular Material-->
+           <!-- Componente de Angular Material -->
            <mat-form-field>
-            <mat-label>dd/mm/yyyy</mat-label>
+            <mat-label>Fecha Nacimiento</mat-label>
             <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">  
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker> 
-          </mat-form-field>  
- 
-           
+          </mat-form-field>
+          
+          <!--  <ion-input type="date" [(ngModel)]="selectedDate"></ion-input>-->
         </ion-item>
       </ion-item>
 
@@ -76,7 +71,7 @@
 
         <!-- Creamos el boton -->
 
-        <ion-button (click)="guardar()"  expand="block" fill="clear">Guardar Datos</ion-button> 
+        <ion-button (click)="guardar()" >Guardar Datos</ion-button> 
 
     </ion-card>
    

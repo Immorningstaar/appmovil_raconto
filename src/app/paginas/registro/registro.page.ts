@@ -17,9 +17,10 @@ export class RegistroPage implements OnInit {
   apellido: string = '';
   selectedOption: string = ''; // nivel de complejidad
   selectedDate: string = '';
-  usuario: string = '';
   password: string = '';
   email: string = '';
+  rol: string = '';
+  rut: string = '';
 
   constructor(
     private alertController: AlertController, 
