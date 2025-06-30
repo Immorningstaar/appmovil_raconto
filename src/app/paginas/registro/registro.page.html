@@ -1,78 +1,73 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="end">
+    <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title class="center-title">Registro</ion-title>
-    <ion-buttons slot="start">
+
+    <ion-title class="center-title">Registro de Usuario</ion-title>
+
+    <ion-buttons slot="end">
       <ion-menu-button menu="mainMenu"></ion-menu-button>
-    </ion-buttons>
+    </ion-buttons> 
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <app-logo></app-logo>
-
+<ion-content [fullscreen]="true"> 
   <ion-card>
     <ion-card-content>
-
-      <ion-item>
-        <ion-label position="floating">Nombre</ion-label>
-        <ion-input type="text" [(ngModel)]="nombre"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Apellido</ion-label>
-        <ion-input type="text" [(ngModel)]="apellido"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">RUT</ion-label>
-        <ion-input type="text" [(ngModel)]="rut"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input type="email" [(ngModel)]="email"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" [(ngModel)]="password"></ion-input>
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Rol de trabajador</ion-label>
-        <ion-select [(ngModel)]="selectedOption" name="trabajador" interface="popover" required>
-          <ion-select-option value="Administrador">Administrador</ion-select-option>
-          <ion-select-option value="Garzon">Garzón</ion-select-option>
-          <ion-select-option value="Cocina">Cocina</ion-select-option>
-          <ion-select-option value="Barra">Barra</ion-select-option>
-        </ion-select>
-      </ion-item>
-
-    <ion-item>
-        <ion-label>Fecha Nacimiento</ion-label>
-        <ion-item>  
-
-           <!-- Componente de Angular Material -->
-           <mat-form-field>
-            <mat-label>Fecha Nacimiento</mat-label>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="selectedDate">  
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker> 
-          </mat-form-field>
-          
-          <!--  <ion-input type="date" [(ngModel)]="selectedDate"></ion-input>-->
+      <form (ngSubmit)="guardar()">
+        <!-- Campos del formulario -->
+        <ion-item>
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="nombre" name="nombre" required></ion-input>
         </ion-item>
-      </ion-item>
 
-      </ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Apellido</ion-label>
+          <ion-input type="text" [(ngModel)]="apellido" name="apellido" required></ion-input>
+        </ion-item>
 
-        <!-- Creamos el boton -->
+        <ion-item>
+          <ion-label position="floating">RUT</ion-label>
+          <ion-input type="text" [(ngModel)]="rut" name="rut" required 
+                    placeholder="12345678-9"></ion-input>
+        </ion-item>
 
-        <ion-button (click)="guardar()" >Guardar Datos</ion-button> 
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+        </ion-item>
 
-    </ion-card>
-   
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Rol</ion-label>
+          <ion-select [(ngModel)]="rol" name="rol" required>
+            <ion-select-option value="administrador">Administrador</ion-select-option>
+            <ion-select-option value="barra">Barra</ion-select-option>
+            <ion-select-option value="cocina">Cocina</ion-select-option>
+            <ion-select-option value="garzon">Garzón</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Fecha de Nacimiento</ion-label>
+          <ion-item>  
+            <mat-form-field>
+              <mat-label>dd/mm/yyyy</mat-label>
+              <input matInput [matDatepicker]="picker" [(ngModel)]="fechaNacimiento" name="fechaNacimiento">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker> 
+            </mat-form-field>  
+          </ion-item>
+        </ion-item>
+
+        <!-- Botón de submit -->
+        <ion-button type="submit" expand="block" fill="clear">Registrarse</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
