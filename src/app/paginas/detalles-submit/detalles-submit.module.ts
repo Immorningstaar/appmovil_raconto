@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { DetallesSubmitPageRoutingModule } from './detalles-submit-routing.module';
 
 import { DetallesSubmitPage } from './detalles-submit.page';
+import { LogoModule } from 'src/app/componentes/logo/logo.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    DetallesSubmitPageRoutingModule
+    DetallesSubmitPageRoutingModule,
+    LogoModule
   ],
   declarations: [DetallesSubmitPage]
 })

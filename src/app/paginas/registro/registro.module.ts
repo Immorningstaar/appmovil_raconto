@@ -15,7 +15,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';  
 
 import { FormatearFechaPipe } from 'src/app/pipes/formatear-fecha-pipe.pipe';
-
+import { LogoModule } from '../../componentes/logo/logo.module'
 @NgModule({
   imports: [
     CommonModule,
@@ -26,7 +26,8 @@ import { FormatearFechaPipe } from 'src/app/pipes/formatear-fecha-pipe.pipe';
     MatInputModule,
     MatFormFieldModule,
     MatNativeDateModule, 
-    MatIconModule 
+    MatIconModule,
+    LogoModule 
   ],
   declarations: [RegistroPage,FormatearFechaPipe], 
   providers: [FormatearFechaPipe]  // <-- agrega esta línea

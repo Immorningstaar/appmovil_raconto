@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { PanelAdminPageRoutingModule } from './panel-admin-routing.module';
-
+import { LogoModule } from '../../componentes/logo/logo.module'
 import { PanelAdminPage } from './panel-admin.page';
 
 @NgModule({
@@ -13,7 +13,8 @@ import { PanelAdminPage } from './panel-admin.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    PanelAdminPageRoutingModule
+    PanelAdminPageRoutingModule,
+    LogoModule
   ],
   declarations: [PanelAdminPage]
 })
