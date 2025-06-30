@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,11 +14,13 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./paginas/perfil/perfil.module').then( m => m.PerfilPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'recuperar-password',
@@ -25,15 +28,18 @@ const routes: Routes = [
   },
   {
     path: 'inventario',
-    loadChildren: () => import('./paginas/inventario/inventario.module').then( m => m.InventarioPageModule)
+    loadChildren: () => import('./paginas/inventario/inventario.module').then( m => m.InventarioPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'panel-admin',
-    loadChildren: () => import('./paginas/panel-admin/panel-admin.module').then( m => m.PanelAdminPageModule)
+    loadChildren: () => import('./paginas/panel-admin/panel-admin.module').then( m => m.PanelAdminPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'detalles-submit',
-    loadChildren: () => import('./paginas/detalles-submit/detalles-submit.module').then( m => m.DetallesSubmitPageModule)
+    loadChildren: () => import('./paginas/detalles-submit/detalles-submit.module').then( m => m.DetallesSubmitPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'registro',

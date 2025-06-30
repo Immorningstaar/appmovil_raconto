@@ -55,10 +55,13 @@ export class LoginPage {
     }
 
     // Verificar que la contraseña tenga máximo 4 caracteres
-    if (this.password.length < 4) {
-      this.mostrarAlerta('La contraseña no puede tener menos de 4 caracteres.');
+    if ((this.password.length < 3) && (this.password.length > 8)) {
+      this.mostrarAlerta('La contraseña debe temer emtre 3 y 8 caracteres.');
       return;
     }
+
+    //si todas las validaciones son correctas
+    localStorage.setItem('usuarioActivo', 'true');
 
     // Si todas las validaciones son correctas, navega a la página "home"
     localStorage.setItem('email', this.email);

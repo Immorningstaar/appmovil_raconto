@@ -18,6 +18,8 @@ export class AppComponent {
   logout() {
     // Aquí iría la lógica de cierre de sesión
     // Por ahora solo navegamos al login
+    localStorage.removeItem('usuarioActivo');
+    console.log ('Sesion cerrada');
     this.router.navigate(['/login'], { replaceUrl: true });
     this.menu.close();
   }
