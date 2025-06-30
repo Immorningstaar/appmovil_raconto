@@ -35,3 +35,47 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* Fondo para toda la app */
+ion-content {
+  --background: url('./assets/img/fondo.jpg') no-repeat center center / cover;
+  /* Reemplaza con el nombre de tu imagen */
+}
+
+/* Tarjetas (ion-card) */
+ion-card {
+
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+/* Botones */
+ion-button {
+  --background: #0057ff; /* Azul fuerte */
+  --background-hover: #0043cc;
+  --background-activated: #003bb8;
+  --border-radius: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: white;
+}
+
+/* Texto en general */
+ion-label, ion-text, p, h1, h2, h3, h4 {
+  color: #222; /* Gris oscuro */
+}
+
+
+
+/* Placeholder del input */
+input::placeholder {
+  color: #999;
+}
+
+/* Links */
+a {
+  color: #0057ff;
+  font-weight: 500;
+  text-decoration: no
+}
