@@ -48,7 +48,7 @@
 
       <ion-item>
         <ion-label>Tipo de trabajador</ion-label>
-        <ion-select [(ngModel)]="selectedOption">
+          <ion-select [(ngModel)]="selectedOption" name="trabajador" interface="popover" required>
           <ion-select-option value="option1">Administrador</ion-select-option>
           <ion-select-option value="option2">Garzon</ion-select-option>
           <ion-select-option value="option3">Cocina</ion-select-option>
