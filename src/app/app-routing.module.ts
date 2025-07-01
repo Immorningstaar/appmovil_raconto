@@ -48,7 +48,11 @@ const routes: Routes = [
   {
     path: '**',
     loadChildren: () => import('./paginas/not-found/not-found.module').then( m => m.NotFoundPageModule)
+  },  {
+    path: 'buscar-producto',
+    loadChildren: () => import('./paginas/buscar-producto/buscar-producto.module').then( m => m.BuscarProductoPageModule)
   },
+
 ];
 
 @NgModule({

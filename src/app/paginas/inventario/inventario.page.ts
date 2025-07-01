@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProductosService } from '../../services/productos.service';
 
 @Component({
   selector: 'app-inventario',
@@ -7,34 +7,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inventario.page.scss'],
   standalone: false,
 })
-export class InventarioPage {
-editar(producto: any) {
-  console.log('Editar producto:', producto);
-  // ARREGLAR MAS ADELANTE EN LA BASE DE DATOS
+export class InventarioPage implements OnInit {
+  productos: any[] = [];
+
+  constructor(private productosService: ProductosService) {}
+
+  ngOnInit() {
+    this.cargarProductos();
+  }
+
+ cargarProductos() {
+  this.productosService.getProductos().subscribe((data) => {
+    // Palabras clave que parecen de restaurante
+    const palabrasClave = ['food', 'drink', 'groceries', 'cooking', 'chocolate', 'oil', 'kitchen'];
+
+    const filtrados = data.products.filter((p: any) => {
+      const titulo = p.title.toLowerCase();
+      const categoria = p.category.toLowerCase();
+      return palabrasClave.some(palabra =>
+        titulo.includes(palabra) || categoria.includes(palabra)
+      );
+    });
+
+    this.productos = filtrados.map((p: any) => ({
+      nombre: p.title,
+      categoria: p.category,
+      stock: p.stock,
+      unidad: 'unidades',
+      vencimiento: '2025-12-31',
+      thumbnail: p.thumbnail
+    }));
+  });
 }
 
-
-  productos = [
-    {
-      nombre: 'Queso mantecoso',
-      categoria: 'Lácteos',
-      stock: 12,
-      unidad: 'kg',
-      vencimiento: '2025-07-01',
-    },
-    {
-      nombre: 'Pechuga de pollo',
-      categoria: 'Carnes',
-      stock: 8,
-      unidad: 'kg',
-      vencimiento: '2025-06-25',
-    },
-    {
-      nombre: 'Jugo natural',
-      categoria: 'Bebidas',
-      stock: 20,
-      unidad: 'botellas',
-      vencimiento: '2025-07-10',
-    },
-  ];
+  editar(producto: any) {
+    console.log('Editar producto:', producto);
+    // Aquí luego puedes abrir un modal o redirigir a otro componente
+  }
 }

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>Buscar Producto</ion-title>
+    
+    <ion-buttons slot="end">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-searchbar
+    [(ngModel)]="barcode"
+    placeholder="Ingresa código de barras"
+    (ionChange)="searchProduct()"
+  ></ion-searchbar>
+
+  <div class="ion-text-center" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+    <p>Buscando producto...</p>
+  </div>
+
+  <ion-card *ngIf="product">
+    <ion-card-header>
+      <ion-card-title>{{ product.product_name || 'Nombre no disponible' }}</ion-card-title>
+      <ion-card-subtitle>{{ product.brands || 'Marca no disponible' }}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-img 
+      *ngIf="product.image_url"
+      [src]="product.image_url"
+    ></ion-img>
+
+    <ion-card-content>
+      <ion-button 
+        expand="block" 
+        (click)="addToInventory()"
+        [disabled]="isLoading"
+      >
+        <ion-spinner *ngIf="isLoading"></ion-spinner>
+        <span *ngIf="!isLoading">Agregar a Inventario</span>
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

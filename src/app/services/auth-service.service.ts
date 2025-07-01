@@ -14,7 +14,7 @@ export class DataservicesService {
 
   async initializeDatabase() {
     this.dbInstance = await this.sqlite.create({
-      name: 'frutix1.db',
+      name: 'raconto.db',
       location: 'default',
     });
     await this.createTables();

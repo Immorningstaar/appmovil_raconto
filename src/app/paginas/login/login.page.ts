@@ -18,7 +18,8 @@ export class LoginPage {
   constructor(
     private router: Router,
     private alertController: AlertController,
-    private dataServices: DataservicesService
+    private dataServices: DataservicesService,
+    private navController: NavController,
   ) { }
 
   async login() {
