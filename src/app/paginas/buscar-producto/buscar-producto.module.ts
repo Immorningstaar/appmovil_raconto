@@ -2,22 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { BuscarProductoPage } from './buscar-producto.page';
-import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: BuscarProductoPage
-  }
-];
+import { BuscarProductoPageRoutingModule } from './buscar-producto-routing.module';
+import { BuscarProductoPage } from './buscar-producto.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes) // Configuración de ruta aquí
+    BuscarProductoPageRoutingModule
   ],
   declarations: [BuscarProductoPage]
 })
