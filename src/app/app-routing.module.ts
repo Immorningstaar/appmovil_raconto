@@ -46,12 +46,21 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
+    path: 'buscar-producto',
+    loadChildren: () => import('./paginas/buscar-producto/buscar-producto.module').then( m => m.BuscarProductoPageModule),
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'camara',
+    loadChildren: () => import('./paginas/camara/camara.module').then( m => m.CamaraPageModule),
+    canActivate: [AuthGuard]
+  },
+
+  {
     path: '**',
     loadChildren: () => import('./paginas/not-found/not-found.module').then( m => m.NotFoundPageModule)
-  },  {
-    path: 'buscar-producto',
-    loadChildren: () => import('./paginas/buscar-producto/buscar-producto.module').then( m => m.BuscarProductoPageModule)
   },
+
 
 ];
 
